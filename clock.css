@@ -8,6 +8,9 @@
     height: 100px;
     background-color: #8ba8af;
     text-align: center;
+    font-size: 80px;
+    font-style: inherit;
+    margin-top: 10px;
 }
 #main {
     width: 1200px;
