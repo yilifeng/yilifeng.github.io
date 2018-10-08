@@ -1,0 +1,23 @@
+{
+  "name": "yilifeng",
+  "version": "1.0.0",
+  "description": "vue2-web webpack",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yilifeng/yilifeng.github.io.git"
+  },
+  "author": "yilifeng",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yilifeng/yilifeng.github.io/issues"
+  },
+  "homepage": "https://github.com/yilifeng/yilifeng.github.io#readme",
+  "devDependencies": {
+    "webpack": "^4.20.2",
+    "webpack-dev-server": "^3.1.9"
+  }
+}
