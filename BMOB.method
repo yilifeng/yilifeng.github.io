@@ -1,0 +1,35 @@
+create_test_info
+
+function onRequest(request, response, modules) {
+  var db = modules.oData;
+  db.insert({
+    "table":"tbl_user_list",             //表名
+    "data":{"user_id":"234","user_name":"www","create_time":"2018-10-12","pass_word":"111111"}            //需要更新的数据，格式为JSON
+              
+  },function(err,data){         //回调函数
+    if (err) {
+      response.send({"status": 1})
+    } else {
+      response.send({"status": 0})
+    }
+  });
+} 
+
+
+query_test_info
+
+function onRequest(request, response, modules) {
+  var db = modules.oData;
+  db.find({
+    "table":"tbl_user_list"
+  },function(err,data){
+    //将返回结果转换为Json对象
+    var resultObject= JSON.parse(data);
+    //遍历这个Json对象
+    for(var results in resultObject)
+    {
+      var resultArr = resultObject[results];
+      response.send({"status": 0, "data":resultArr});
+    }
+  });
+}
