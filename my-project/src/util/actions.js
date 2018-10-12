@@ -4,7 +4,7 @@
  */
 
 import testApi from '../api/test'
-var url = 'https://cloud.bmob.cn/78bbeb25ef1fc41d/'
+var url = 'https://cloud.bmob.cn/e05b480d062bfcec/'
 
 export const queryTest = function () {
   let res = testApi.queryTest(url)
