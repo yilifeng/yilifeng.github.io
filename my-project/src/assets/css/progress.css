@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+.el-progress-bar__inner, .el-progress-bar__outer, .el-progress.is-abnormal, .el-progress.is-exception,  .el-progress.is-success{
+    border-radius: 0;
+    }
+    
+.el-progress.is-abnormal .el-progress-bar__inner{
+    background-color:#feb13e
+    }
+    
+.el-progress.is-abnormal .el-progress__text{
+    color:#feb13e
+    }
+    
+    

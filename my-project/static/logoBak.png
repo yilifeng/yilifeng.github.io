@@ -1,0 +1,5 @@
+重置后取消暂存的变更：
+M	package-lock.json
+M	src/view/LoginView.vue
+M	static/logoBak.png
+M	static/oem/logo.png

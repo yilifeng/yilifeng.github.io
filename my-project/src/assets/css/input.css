@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+.el-input__inner {
+    height: 33px;
+    font-size: 13px;
+    box-shadow: none;
+    border: #fff;
+    border-color: #fff;
+    border-radius: 0;
+    color: #666666;
+}
+ 
+.el-input__inner:hover {
+    border:#fff;
+    border-color: #fff;
+    border-bottom: #d8dce5;
+}
+ 
+.el-input__inner:focus {
+    border: #fff;
+    border-color: #fff;
+    border-bottom: #d8dce5;
+    box-shadow: none;
+    transition-duration: .5s;
+}
+
+.el-input__inner::-webkit-input-placeholder {
+    line-height: 20px;
+    color:#666666
+}
+.el-input.is-active .el-input__inner,.el-input__inner:focus{border-color:#fff;}
+.el-textarea__inner::placeholder{color:#666666}
+.el-textarea__inner:hover{border-color:#fff}
+.el-textarea__inner:focus{border-color:#fff}
+
+    
