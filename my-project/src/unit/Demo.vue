@@ -37,11 +37,11 @@ export default {
   },
   methods: {
     ...mapActions([
-      'queryTest'
+      'queryAllUserInfo'
     ]),
     refresh () {
       console.log('refresh!')
-      this.queryTest()
+      this.queryAllUserInfo()
         .then((data) => {
           console.log(data)
           for (let i = 0; i < data.length; i++) {

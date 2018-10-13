@@ -71,54 +71,6 @@
                   {{item.text }}
               </el-button>
               </el-button-group>
-              <!--<el-dropdown trigger="click" style="margin-left:20px;" v-if="buttonList1">-->
-                <!--<el-button type="primary" size="small">-->
-                  <!--{{buttonList1[0].name}}-->
-                  <!--<i class="el-icon-caret-bottom el-icon&#45;&#45;right"></i>-->
-                <!--</el-button>-->
-                <!--<el-dropdown-menu slot="dropdown">-->
-                  <!--<el-dropdown-item v-for="(buttonItem, buttonIndex) in buttonList1[0].buttons" style="text-align:center">-->
-                    <!--<el-button type="text"-->
-                               <!--size="small"-->
-                               <!--:key="buttonIndex"-->
-                               <!--@click="emit(buttonItem.event)">-->
-                      <!--{{buttonItem.text }}-->
-                      <!--</el-button>-->
-                  <!--</el-dropdown-item>-->
-                <!--</el-dropdown-menu>-->
-              <!--</el-dropdown>-->
-              <!--<el-dropdown trigger="click" style="margin-left:20px;" v-if="buttonList2">-->
-                <!--<el-button type="primary" size="small">-->
-                  <!--{{buttonList2[0].name}}-->
-                  <!--<i class="el-icon-caret-bottom el-icon&#45;&#45;right"></i>-->
-                <!--</el-button>-->
-                <!--<el-dropdown-menu slot="dropdown">-->
-                  <!--<el-dropdown-item v-for="(buttonItem, buttonIndex) in buttonList2[0].buttons" style="text-align:center">-->
-                    <!--<el-button type="text"-->
-                               <!--size="small"-->
-                               <!--:key="buttonIndex"-->
-                               <!--@click="emit(buttonItem.event)">-->
-                      <!--{{buttonItem.text }}-->
-                      <!--</el-button>-->
-                  <!--</el-dropdown-item>-->
-                <!--</el-dropdown-menu>-->
-              <!--</el-dropdown>-->
-              <!--<el-dropdown trigger="click" style="margin-left:20px;" v-if="buttonList3">-->
-                <!--<el-button type="primary" size="small">-->
-                  <!--{{buttonList3[0].name}}-->
-                  <!--<i class="el-icon-caret-bottom el-icon&#45;&#45;right"></i>-->
-                <!--</el-button>-->
-                <!--<el-dropdown-menu slot="dropdown">-->
-                  <!--<el-dropdown-item v-for="(buttonItem, buttonIndex) in buttonList3[0].buttons" style="text-align:center">-->
-                    <!--<el-button type="text"-->
-                               <!--size="small"-->
-                               <!--:key="buttonIndex"-->
-                               <!--@click="emit(buttonItem.event)">-->
-                      <!--{{buttonItem.text }}-->
-                      <!--</el-button>-->
-                  <!--</el-dropdown-item>-->
-                <!--</el-dropdown-menu>-->
-              <!--</el-dropdown>-->
               <el-button-group style="margin-left:20px;" v-if="buttonGroup2">
                 <el-button v-for="(item, index) in buttonGroup2"
                            :type="item.type?item.type:'primary'"
@@ -255,9 +207,6 @@ export default {
     'tableData',
     'buttonGroup1',
     'buttonGroup2',
-    // 'buttonList1',
-    // 'buttonList2',
-    // 'buttonList3',
     'button',
     'groupType',
     'groupData',
@@ -471,32 +420,6 @@ export default {
       }
       return softsStr
     }
-  },
-  computed: {
-    // columns: {
-    //   get: function () {
-    //     return this.$store.state[this.unitName].columns
-    //   },
-    //   set: function (value) {
-    //     this.$store.commit(`${this.unitName}/setTableColumns`, value)
-    //   }
-    // },
-    // tableData: {
-    //   get () {
-    //     return this.$store.state[this.unitName].tableData
-    //   },
-    //   set (value) {
-    //     this.$store.commit(`${this.unitName}/setTableData`, value)
-    //   }
-    // },
-    // groupData: {
-    //   get () {
-    //     return this.$store.state[this.unitName].groupData
-    //   },
-    //   set (value) {
-    //     this.$store.commit(`${this.unitName}/setGroupData`, value)
-    //   }
-    // }
   }
 }
 </script>

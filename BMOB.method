@@ -1,22 +1,21 @@
-create_test_info
+create_user_info
 
 function onRequest(request, response, modules) {
   var db = modules.oData;
   db.insert({
     "table":"tbl_user_list",             //表名
-    "data":{"user_id":"234","user_name":"www","create_time":"2018-10-12","pass_word":"111111"}            //需要更新的数据，格式为JSON
-              
+    "data":{"user_id":request.body.user_id,"user_name":request.body.username,"pass_word":request.body.password}            //需要更新的数据，格式为JSON
   },function(err,data){         //回调函数
     if (err) {
-      response.send({"status": 1})
+        response.send({"status": 1})
     } else {
-      response.send({"status": 0})
+        response.send({"status": 0})
     }
   });
-} 
+}
 
 
-query_test_info
+query_user_info
 
 function onRequest(request, response, modules) {
   var db = modules.oData;
@@ -29,6 +28,7 @@ function onRequest(request, response, modules) {
     for(var results in resultObject)
     {
       var resultArr = resultObject[results];
+
       response.send({"status": 0, "data":resultArr});
     }
   });

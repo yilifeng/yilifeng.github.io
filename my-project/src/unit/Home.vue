@@ -97,11 +97,11 @@ export default {
   },
   methods: {
     ...mapActions([
-      'queryTest',
-      'deleteOneData'
+      'queryAllUserInfo',
+      'deleteOneUser'
     ]),
     refresh () {
-      this.queryTest()
+      this.queryAllUserInfo()
         .then((data) => {
           console.log(data)
           for (let i = 0; i < data.length; i++) {
@@ -137,7 +137,7 @@ export default {
           type: 'warning'
         }).then(() => {
           alert('remove')
-          this.deleteOneData(this.selected[0])
+          this.deleteOneUser(this.selected[0])
         }).catch(() => {
           this.$message({
             type: 'info',
