@@ -52,7 +52,7 @@ export default {
   ],
   data () {
     return {
-      activeIndex: '1'
+      activeIndex: '2'
     }
   },
   methods: {

@@ -14,12 +14,12 @@ export default new Router({
     {
       path: '/',
       component: index,
-      redirect: '/index/About'
+      redirect: '/index/Blog'
     },
     {
       path: '/index',
       component: index,
-      redirect: '/index/About',
+      redirect: '/index/Blog',
       children: [
         {path: 'About', component: About},
         {path: 'Blog', component: Blog},
