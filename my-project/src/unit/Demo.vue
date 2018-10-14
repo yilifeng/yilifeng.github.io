@@ -1,73 +1,47 @@
 <template>
-  <el-table
-    :data="tableData"
-    style="width: 100%; text-align: left"
-    :row-class-name="tableRowClassName">
-    <el-table-column
-      prop="date"
-      label="日期">
-    </el-table-column>
-    <el-table-column
-      prop="name"
-      label="姓名">
-    </el-table-column>
-    <el-table-column
-      prop="address"
-      label="地址">
-    </el-table-column>
-  </el-table>
+  <el-main style="min-width: 80%">
+    <el-aside  v-if="showAside" style="min-width: 15%">
+      <aside-aside name="qwert"></aside-aside>
+    </el-aside>
+    <div id="content">
+      <slot name="content"></slot>
+      <router-view></router-view>
+    </div>
+  </el-main>
 </template>
 
-<style>
-  .el-table .warning-row {
-    background: oldlace;
-  }
-
-  .el-table .success-row {
-    background: #f0f9eb;
-  }
-</style>
-
 <script>
-import { mapActions } from 'vuex'
-
+import Aside from '@/components/Aside'
 export default {
-  mounted () {
-    this.refresh()
-  },
-  methods: {
-    ...mapActions([
-      'queryAllUserInfo'
-    ]),
-    refresh () {
-      console.log('refresh!')
-      this.queryAllUserInfo()
-        .then((data) => {
-          console.log(data)
-          for (let i = 0; i < data.length; i++) {
-            let oneData = {}
-            oneData.date = data[i].createdAt
-            oneData.name = data[i].name
-            oneData.address = data[i].objectId
-            this.tableData.push(oneData)
-          }
-          console.log('table data')
-          console.log(this.tableData)
-        })
-    },
-    tableRowClassName ({row, rowIndex}) {
-      if (rowIndex === 1) {
-        return 'warning-row'
-      } else if (rowIndex === 3) {
-        return 'success-row'
-      }
-      return ''
-    }
+  name: 'index',
+  components: {
+    'aside-aside': Aside
   },
   data () {
     return {
-      tableData: []
+      showAside: true
+    }
+  },
+  methods: {
+    getAside (aside) {
+      this.showAside = aside
+      this.moreView = true
     }
   }
 }
 </script>
+
+<style scoped>
+  .el-main {
+    background-color: #E9EEF3;
+    color: #333;
+    text-align: center;
+    line-height: 100%;
+  }
+  .el-aside {
+    background-color: #D3DCE6;
+    color: #333;
+    text-align: center;
+    line-height: 100%;
+  }
+</style>

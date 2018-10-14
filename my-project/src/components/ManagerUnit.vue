@@ -181,24 +181,24 @@
         </div>
       </el-main>
     </el-container>
-    <tablecolumn-dialog ref='tablecolumn_dlg'>
-    </tablecolumn-dialog>
-    <group-dialog ref='group_dlg'>
-    </group-dialog>
+    <!--<tablecolumn-dialog ref='tablecolumn_dlg'>-->
+    <!--</tablecolumn-dialog>-->
+    <!--<group-dialog ref='group_dlg'>-->
+    <!--</group-dialog>-->
   </div>
 </template>
 
 <script>
 import '../assets/css/grouptree.css'
-import GroupDialog from '@/dialog/GroupDialog'
-import TablecolumnDialog from '@/dialog/TablecolumnDialog'
+// import GroupDialog from '@/dialog/GroupDialog'
+// import TablecolumnDialog from '@/dialog/TablecolumnDialog'
 import ElAside from '../../node_modules/element-ui/packages/aside/src/main'
 export default {
   name: 'manager-unit',
   components: {
-    ElAside,
-    'group-dialog': GroupDialog,
-    'tablecolumn-dialog': TablecolumnDialog
+    ElAside
+    // 'group-dialog': GroupDialog,
+    // 'tablecolumn-dialog': TablecolumnDialog
   },
   props: [
     'unitName',
