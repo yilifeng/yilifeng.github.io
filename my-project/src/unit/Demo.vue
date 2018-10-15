@@ -1,12 +1,12 @@
 <template>
-  <el-main style="min-width: 80%">
-    <el-aside  v-if="showAside" style="min-width: 15%">
+  <el-row style="margin-top: 10px">
+    <el-col :span="left_size"><div class="grid-content bg-purple">
       <aside-aside name="qwert"></aside-aside>
-    </el-aside>
-    <div id="content">
-      <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-    </div>
-  </el-main>
+    </div></el-col>
+    <el-col :span="right_size"><div class="grid-content bg-purple-light">
+      <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+    </div></el-col>
+  </el-row>
 </template>
 
 <script>
@@ -18,30 +18,15 @@ export default {
   },
   data () {
     return {
-      showAside: true
-    }
-  },
-  methods: {
-    getAside (aside) {
-      this.showAside = aside
-      this.moreView = true
+      left_size: 6,
+      right_size: 18
     }
   }
 }
 </script>
 
 <style scoped>
-  .el-main {
-    background-color: #E9EEF3;
-    color: #333;
-    text-align: center;
-    line-height: 100%;
-  }
-  .el-aside {
-    background-color: #D3DCE6;
-    color: #333;
-    text-align: center;
-    position: absolute;
-    line-height: 100%;
+  .bg-purple {
+    background: #d3dce6;
   }
 </style>

@@ -1,14 +1,12 @@
 <template>
-  <el-row>
-    <el-col :span="8">
-      <el-aside  v-if="showAside">
-        <aside-aside name="qwert"></aside-aside>
-      </el-aside>
-    </el-col>
-    <el-col :span="16">
+  <el-row style="margin-top: 10px">
+    <el-col :span="6"><div class="grid-content bg-purple">
+      <aside-aside name="qwert"></aside-aside>
+    </div></el-col>
+    <el-col :span="18"><div class="grid-content bg-purple-light">
       <el-form :model="form" ref="form" label-width="50px" :rules="rule">
         <el-form-item label="姓    名" prop="username">
-          <el-input type="text" v-model="form.username" auto-complete="off"></el-input>
+        <el-input type="text" v-model="form.username" auto-complete="off"></el-input>
         </el-form-item>
         <el-form-item label="密    码" prop="password">
           <el-input type="password" v-model="form.password" auto-complete="off"></el-input>
@@ -21,7 +19,7 @@
           <el-button @click="resetForm">重置</el-button>
         </el-form-item>
       </el-form>
-    </el-col>
+    </div></el-col>
   </el-row>
 </template>
 
@@ -85,4 +83,10 @@ export default {
     position: absolute;
     line-height: 100%;
   }
+  .bg-purple {
+    background: #d3dce6;
+  }
+  /*.bg-purple-light {*/
+    /*background: #e5e9f2;*/
+  /*}*/
 </style>
