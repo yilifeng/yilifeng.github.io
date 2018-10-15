@@ -1,12 +1,12 @@
 <template>
   <el-row>
     <br/>
-    <el-col :span="10">
+    <el-col>
       <i class="el-icon-date"></i>
       <span>{{ name }}</span>
       <br/>
     </el-col>
-    <el-col :span="10">
+    <el-col>
       <a-line title="menus"></a-line>
       <br/>
       <p>aaaaaa</p>
@@ -29,10 +29,5 @@ export default {
 </script>
 
 <style scoped>
-  .box {
-    height:100%;
-    background-color: #333;
-    position:absolute;
-    width: 15%;
-  }
+
 </style>
