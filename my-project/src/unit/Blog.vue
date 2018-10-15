@@ -1,24 +1,37 @@
 <template>
-  <el-form :model="form" ref="form" label-width="100px" :rules="rule">
-    <el-form-item label="姓    名" prop="username">
-      <el-input type="text" v-model="form.username" auto-complete="off"></el-input>
-    </el-form-item>
-    <el-form-item label="密    码" prop="password">
-      <el-input type="password" v-model="form.password" auto-complete="off"></el-input>
-    </el-form-item>
-    <el-form-item label="确认密码" prop="password2">
-      <el-input type="password" v-model="form.password2" auto-complete="off"></el-input>
-    </el-form-item>
-    <el-form-item>
-      <el-button type="primary" @click="create">提交</el-button>
-      <el-button @click="resetForm">重置</el-button>
-    </el-form-item>
-  </el-form>
+  <el-row>
+    <el-col :span="8">
+      <el-aside  v-if="showAside">
+        <aside-aside name="qwert"></aside-aside>
+      </el-aside>
+    </el-col>
+    <el-col :span="16">
+      <el-form :model="form" ref="form" label-width="50px" :rules="rule">
+        <el-form-item label="姓    名" prop="username">
+          <el-input type="text" v-model="form.username" auto-complete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="密    码" prop="password">
+          <el-input type="password" v-model="form.password" auto-complete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="确认密码" prop="password2">
+          <el-input type="password" v-model="form.password2" auto-complete="off"></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" @click="create">提交</el-button>
+          <el-button @click="resetForm">重置</el-button>
+        </el-form-item>
+      </el-form>
+    </el-col>
+  </el-row>
 </template>
 
 <script>
 import { mapActions } from 'vuex'
+import Aside from '@/components/Aside'
 export default {
+  components: {
+    'aside-aside': Aside
+  },
   data () {
     var validate = (rule, value, callback) => {
       if (value === '') {
@@ -30,6 +43,7 @@ export default {
       }
     }
     return {
+      showAside: true,
       form: {
         username: ''
       },
@@ -56,3 +70,19 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .el-main {
+    background-color: #E9EEF3;
+    color: #333;
+    text-align: center;
+    line-height: 100%;
+  }
+  .el-aside {
+    background-color: #D3DCE6;
+    color: #333;
+    text-align: center;
+    position: absolute;
+    line-height: 100%;
+  }
+</style>

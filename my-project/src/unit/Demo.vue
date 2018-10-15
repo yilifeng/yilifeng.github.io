@@ -4,8 +4,7 @@
       <aside-aside name="qwert"></aside-aside>
     </el-aside>
     <div id="content">
-      <slot name="content"></slot>
-      <router-view></router-view>
+      <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
     </div>
   </el-main>
 </template>
