@@ -1,11 +1,5 @@
 <template>
-  <div
-    class="resume"
-    @mousewheel="mouse"
-    :style="{
-    backgroundImage:`url(${img})`,
-    height: `${clientHeight}`
-  }">
+  <div class="resume" @mousewheel="mouse" :style="{backgroundImage:`url(${img})`, height: `${clientHeight}`}">
     <transition
       :duration="{ enter: 2500, leave: 1500 }"
       :leave-active-class="'animated ' + leaveanimate"

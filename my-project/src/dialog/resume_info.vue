@@ -1,27 +1,25 @@
 <template>
-  <div class="info">
-    <h1>基本资料/info</h1>
+  <div class="info" style="margin-top: 5%">
     <transition
       :duration="{ enter: 2500, leave: 1500 }"
       enter-active-class="animated fadeInUp">
-      <div class="cont"  v-if="show">
-        <img class="avatar" src="../../static/img/bg3.jpg" alt="">
-        <h2>博学之,审问之,慎思之,明辨之,笃行之</h2>
-        <p>我叫XXX</p>
-        <p>三年软件开发,一年前端开发经验</p>
-        <div class="state">
-          <el-row :gutter="30">
-            <template v-for="item in states">
-              <el-col :span="6" :xs="12" :key="item.icon">
-                <div class="iconBox">
-                  <i class="iconfont iconSet" :class="item.icon"></i>
-                </div>
-                <p v-text="item.val"></p>
-              </el-col>
-            </template>
-          </el-row>
-        </div>
-      </div>
+      <el-row  class="cont" v-if="show">
+        <h1 style="text-align: center">基本信息</h1>
+        <el-col :span="16"><div class="grid-content bg-purple">
+          <img class="avatar" src="../../static/img/photo.jpg" alt="">
+          <h3>益立锋</h3>
+        </div></el-col>
+        <el-col class="state" :span="6"><div class="grid-content bg-purple-light">
+          <template v-for="item in states">
+            <el-row :key="item.icon">
+              <div class="iconBox">
+                <i class="iconfont iconSet" :class="item.icon"></i>
+              </div>
+              <p v-text="item.val"></p>
+            </el-row>
+          </template>
+        </div></el-col>
+      </el-row>
     </transition>
   </div>
 </template>
@@ -61,10 +59,10 @@ export default {
     background-color: rgba(233, 225, 225, .3);
     border-radius: 25px;
     .avatar {
-      width: 120px;
-      height: 120px;
-      border-radius: 60px;
-      margin-top: 20px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin-top: 30px;
     }
     .state {
       padding: 20px 10px 50px;
