@@ -1,11 +1,11 @@
 <template>
-  <div class="info" style="margin-top: 5%">
+  <div class="info" style="margin-top: 10%">
     <transition
       :duration="{ enter: 2500, leave: 1500 }"
       enter-active-class="animated fadeInUp">
       <el-row  class="cont" v-if="show">
-        <h1 style="text-align: center">基本信息</h1>
-        <el-col :span="16"><div class="grid-content bg-purple">
+        <el-col :span="15"><div class="grid-content bg-purple">
+          <h1 style="text-align: center">基本信息</h1>
           <img class="avatar" src="../../static/img/photo.jpg" alt="">
           <h3>益立锋</h3>
         </div></el-col>
