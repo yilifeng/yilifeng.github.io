@@ -51,10 +51,10 @@
   </div>
 </template>
 <script>
-import Con1 from '@/dialog/compon1'
-import Con2 from '@/dialog/compon2'
-import Con3 from '@/dialog/compon3'
-import Con4 from '@/dialog/compon4'
+import Con1 from '@/dialog/resume_info'
+import Con2 from '@/dialog/resume_knowlege'
+import Con3 from '@/dialog/resume_works'
+import Con4 from '@/dialog/resume_connect'
 export default {
   components: {
     Con1,
