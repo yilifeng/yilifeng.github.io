@@ -18,6 +18,7 @@
                 <template v-for="child in skill.child">
                   <el-col :span="12" :key="child.name">
                     <el-form-item :label="child.name">
+                      <el-button style="margin-right: 10px" type="text" @click="open(child.level)"><i class="el-icon-info"></i></el-button>
                       <el-progress :text-inside="true" :stroke-width="18" :percentage=child.level :color=child.color></el-progress>
                     </el-form-item>
                   </el-col>
@@ -75,6 +76,28 @@ export default {
       setTimeout(() => {
         this.show = true
       }, 1000)
+    },
+    open (level) {
+      let text = ''
+      if (level < 60) {
+        text = '能够在同事的指导下完成对应技术的相关工作'
+      } else if (level >= 60 && level < 75) {
+        text = '能够在项目限期内独立的阅读相关技术的代码及需求文档，并完成编码工作'
+      } else if (level >= 75 && level < 85) {
+        text = '能够熟练使用相关技术，并根据需求做出相应设计，并完成较高水平的编码工作'
+      } else if (level >= 85) {
+        text = '对相关领域有独到的建树，做过这方面的牛逼项目，在这个技术上面可以起到牵头及带领的作用'
+      }
+      this.$alert(text, '掌握详情', {
+        confirmButtonText: '确定',
+        callback: action => {
+          this.$message({
+            type: 'info',
+            center: true,
+            message: `action: ${action}`
+          })
+        }
+      })
     }
   },
   mounted () {
