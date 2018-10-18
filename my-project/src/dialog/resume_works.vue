@@ -1,26 +1,27 @@
 <template>
-  <div class="info">
-    <h1>作品集/Profile</h1>
+  <div class="info" style="margin-top: 8%">
     <transition
       :duration="{ enter: 2500, leave: 1500 }"
       enter-active-class="animated fadeInRight">
-      <div class="cont"  v-if="show">
-        <el-row :gutter="20">
-          <template>
-            <el-carousel :interval="4000" type="card" height="200px">
-              <el-carousel-item v-for="item in profiles" :key="item">
-                <el-col :key="item.name" :span="12" :xs="24">
-                  <div class="item">
-                    <h2 v-text="item.name"></h2>
-                    <p v-text="'技术栈: ' + item.skills"></p>
-                    <p v-text="item.content"></p>
-                    <p v-text="'github地址: ' + item.github"></p>
-                  </div>
-                </el-col>
-              </el-carousel-item>
-            </el-carousel>
-          </template>
-        </el-row>
+      <div class="cont" v-if="show">
+        <h1 style="margin-top: 35px; text-align: center; font-size: 25px; color: red">工作经历</h1>
+        <template>
+          <el-col :span="10" v-for="item in profiles" :key="item" :offset="index > 0 ? 2 : 0">
+            <el-card :body-style="{ padding: '0px' }">
+              <img src="../../static/img/taomee.jpg" height="200" width="200" alt="">
+              <div style="padding: 14px;">
+                <span>{{item.name}}</span>
+                <div class="bottom clearfix">
+                  <time class="time">{{ currentDate }}</time>
+                  <el-tooltip placement="top">
+                    <div style="width: 200px" slot="content">{{item.content}}</div>
+                    <el-button type='text'>详细信息<i class="el-icon-info"></i></el-button>
+                  </el-tooltip>
+                </div>
+              </div>
+            </el-card>
+          </el-col>
+        </template>
       </div>
     </transition>
   </div>
@@ -30,6 +31,7 @@ export default {
   data () {
     return {
       show: false,
+      currentDate: new Date(),
       profiles: [
         {
           name: '电商代理商城(learn)',
@@ -103,6 +105,31 @@ export default {
         }
       }
     }
+  }
+  .time {
+    font-size: 13px;
+    color: #999;
+  }
+  .bottom {
+    margin-top: 13px;
+    line-height: 12px;
+  }
+  .button {
+    padding: 0;
+    float: right;
+  }
+  .image {
+    width: 100%;
+    height: 50%;
+    display: block;
+  }
+  .clearfix:before,
+  .clearfix:after {
+    display: table;
+    content: "";
+  }
+  .clearfix:after {
+    clear: both
   }
 }
 </style>
