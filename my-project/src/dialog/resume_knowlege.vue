@@ -18,7 +18,12 @@
                 <template v-for="child in skill.child">
                   <el-col :span="12" :key="child.name">
                     <el-form-item :label="child.name">
-                      <el-button style="margin-right: 10px" type="text" @click="open(child.level)"><i class="el-icon-info"></i></el-button>
+                      <div>
+                        <el-tooltip placement="top">
+                          <div slot="content">{{open(child.level)}}</div>
+                          <el-button type='text'><i class="el-icon-info"></i></el-button>
+                        </el-tooltip>
+                      </div>
                       <el-progress :text-inside="true" :stroke-width="18" :percentage=child.level :color=child.color></el-progress>
                     </el-form-item>
                   </el-col>
@@ -88,16 +93,7 @@ export default {
       } else if (level >= 85) {
         text = '对相关领域有独到的建树，做过这方面的牛逼项目，在这个技术上面可以起到牵头及带领的作用'
       }
-      this.$alert(text, '掌握详情', {
-        confirmButtonText: '确定',
-        callback: action => {
-          this.$message({
-            type: 'info',
-            center: true,
-            message: `action: ${action}`
-          })
-        }
-      })
+      return text
     }
   },
   mounted () {
