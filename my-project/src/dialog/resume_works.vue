@@ -6,15 +6,19 @@
       enter-active-class="animated fadeInRight">
       <div class="cont"  v-if="show">
         <el-row :gutter="20">
-          <template v-for="item in profiles">
-            <el-col :key="item.name" :span="12" :xs="24">
-              <div class="item">
-                <h2 v-text="item.name"></h2>
-                <p v-text="'技术栈: ' + item.skills"></p>
-                <p v-text="item.content"></p>
-                <p v-text="'github地址: ' + item.github"></p>
-              </div>
-            </el-col>
+          <template>
+            <el-carousel :interval="4000" type="card" height="200px">
+              <el-carousel-item v-for="item in profiles" :key="item">
+                <el-col :key="item.name" :span="12" :xs="24">
+                  <div class="item">
+                    <h2 v-text="item.name"></h2>
+                    <p v-text="'技术栈: ' + item.skills"></p>
+                    <p v-text="item.content"></p>
+                    <p v-text="'github地址: ' + item.github"></p>
+                  </div>
+                </el-col>
+              </el-carousel-item>
+            </el-carousel>
           </template>
         </el-row>
       </div>
