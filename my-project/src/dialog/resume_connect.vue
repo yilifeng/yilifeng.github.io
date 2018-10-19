@@ -15,33 +15,30 @@
             </el-col>
           </template>
         </el-col>
-        <el-col :span="10">
-          <template v-for="item in tags">
-            <el-tag :key="item" type="info">{{item}}</el-tag>&nbsp;&nbsp;&nbsp;&nbsp;
-          </template>
-          <div class="contact">
-            <h2>联系我</h2>
-            <el-form>
-              <el-form-item label="电话：">
-                <a>{{phone}}</a>
-              </el-form-item>
-              <el-form-item label="电话：">
-                <a>{{email}}</a>
-              </el-form-item>
-            </el-form>
+        <el-col :span="10" style="margin-top: 5%">
+          <el-form>
+            <el-form-item label="兴趣爱好：">
+              <template v-for="item in tags">
+                <el-tag :key="item" type="error">{{item}}</el-tag>&nbsp;&nbsp;
+              </template>
+            </el-form-item>
+          </el-form>
+          <h3 style="margin-top: 10px">联系我</h3>
+          <el-form style="text-align: left; margin-left: 30%">
+            <el-form-item label="电话：" style="margin-bottom: 0">{{phone}}</el-form-item>
+            <el-form-item label="邮箱：" style="margin-bottom: 0">{{email}}</el-form-item>
+          </el-form></el-col>
+          <div class="acount">
+            <el-row>
+              <template v-for="item in accounts">
+                <el-col :span="6" :key="item.class">
+                  <div class="iconBox">
+                    <a :href="item.link"><i class="iconfont iconSet" :class="item.class"></i></a>
+                  </div>
+                </el-col>
+              </template>
+            </el-row>
           </div>
-        </el-col>
-        <div class="acount">
-          <el-row>
-            <template v-for="item in accounts">
-              <el-col :span="6" :key="item.class">
-                <div class="iconBox">
-                  <a :href="item.link"><i class="iconfont iconSet" :class="item.class"></i></a>
-                </div>
-              </el-col>
-            </template>
-          </el-row>
-        </div>
       </div>
     </transition>
   </div>
