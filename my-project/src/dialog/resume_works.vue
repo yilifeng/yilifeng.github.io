@@ -6,17 +6,19 @@
       <div class="cont" v-if="show">
         <h1 style="margin-top: 35px; text-align: center; font-size: 25px; color: red">工作经历</h1>
         <template>
-          <el-col :span="10" v-for="item in profiles" :key="item" :offset="index > 0 ? 2 : 0">
+          <el-col :span="12" style="width: 300px; height: 300px; background:#000; filter:alpha(opacity:30); opacity:0.3;" v-for="item in profiles" :key="item" :offset="index > 0 ? 2 : 0">
             <el-card :body-style="{ padding: '0px' }">
-              <img src="../../static/img/taomee.jpg" height="200" width="200" alt="">
-              <div style="padding: 14px;">
-                <span>{{item.name}}</span>
-                <div class="bottom clearfix">
-                  <time class="time">{{ currentDate }}</time>
-                  <el-tooltip placement="top">
-                    <div style="width: 200px" slot="content">{{item.content}}</div>
-                    <el-button type='text'>详细信息<i class="el-icon-info"></i></el-button>
-                  </el-tooltip>
+              <div style="background:#000; filter:alpha(opacity:30); opacity:1;">
+                <img src="../../static/img/taomee.jpg" height="200" width="200" alt="">
+                <div style="padding: 14px;">
+                  <span>{{item.name}}</span>
+                  <div class="bottom clearfix">
+                    <time class="time">{{ currentDate }}</time>
+                    <el-tooltip placement="top">
+                      <div style="width: 200px" slot="content">{{item.content}}</div>
+                      <el-button type='text'>详细信息<i class="el-icon-info"></i></el-button>
+                    </el-tooltip>
+                  </div>
                 </div>
               </div>
             </el-card>
