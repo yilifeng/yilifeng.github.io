@@ -5,20 +5,18 @@
       enter-active-class="animated fadeInRight">
       <div class="cont" v-if="show">
         <h1 style="margin-top: 35px; text-align: center; font-size: 25px; color: red">工作经历</h1>
-        <template>
-          <el-col :span="12" style="width: 300px; height: 300px; background:#000; filter:alpha(opacity:30); opacity:0.3;" v-for="item in profiles" :key="item" :offset="index > 0 ? 2 : 0">
-            <el-card :body-style="{ padding: '0px' }">
-              <div style="background:#000; filter:alpha(opacity:30); opacity:1;">
-                <img src="../../static/img/taomee.jpg" height="200" width="200" alt="">
-                <div style="padding: 14px;">
-                  <span>{{item.name}}</span>
-                  <div class="bottom clearfix">
-                    <time class="time">{{ currentDate }}</time>
-                    <el-tooltip placement="top">
-                      <div style="width: 200px" slot="content">{{item.content}}</div>
-                      <el-button type='text'>详细信息<i class="el-icon-info"></i></el-button>
-                    </el-tooltip>
-                  </div>
+        <template v-for="item in profiles">
+          <el-col :span="12" :xs="24" :key="item.name">
+            <el-card class="item" :body-style="{ padding: '0px'}">
+              <img src="../../static/img/taomee.jpg" height="150" width="200" alt="">
+              <div style="padding: 14px;">
+                <span>{{item.name}}</span>
+                <div class="bottom clearfix">
+                  <time class="time">{{ currentDate }}</time>
+                  <el-tooltip placement="top">
+                    <div style="width: 200px" slot="content">{{item.content}}</div>
+                    <el-button type='text'>工作详情<i class="el-icon-info"></i></el-button>
+                  </el-tooltip>
                 </div>
               </div>
             </el-card>
@@ -81,7 +79,7 @@ export default {
   .info;
   .cont {
     .cont;
-    width: 90%;
+    width: 70%;
     .item {
       background-color: rgba(59, 123, 13, 0.2);
       padding: 10px;
@@ -107,6 +105,10 @@ export default {
         }
       }
     }
+  }
+  .el-card {
+    background: transparent;
+    width: 90%;
   }
   .time {
     font-size: 13px;

@@ -1,26 +1,36 @@
 <template>
-  <div class="info">
-    <h1>联系我/Contact</h1>
+  <div class="info" style="margin-top: 8%">
     <transition
       :duration="{ enter: 2500, leave: 1500 }"
       enter-active-class="animated fadeInDown">
       <div class="cont"  v-if="show">
-        <div class="assessment">
-          <h2>自我评价</h2>
-          <p>高效的自学能力,具备独立分析解决问题能力</p>
-          <p>强烈的自我驱动力,只喜欢优雅的代码</p>
-          <p>熟悉组件化开发，sf重度依耐性患者</p>
-        </div>
-        <div class="honor">
-          <h2>兴趣爱好</h2>
-          <p>爱读书、爱写字、爱喝茶</p>
-          <p>喜欢尝试新事物</p>
-        </div>
-        <div class="contact">
-          <h2>联系我</h2>
-          <p><i class="iconfont icon-shouji"></i>  XXXXXXXXXXX</p>
-          <p><i class="iconfont icon-youxiang"></i>  XXXXXX@163.com</p>
-        </div>
+        <h1 style="margin-top: 35px; text-align: center; font-size: 25px; color: red">请联系我</h1>
+        <el-col :span="10">
+          <el-col :span="3" style="margin-left: 30%">
+            <h2 style="margin: 0 auto;width: 20px; line-height: 24px">自我评价</h2>
+          </el-col>
+          <template v-for="item in appraise">
+            <el-col :span="2" :key="item">
+              <div :key="item" style="margin: 0 auto;width: 20px; line-height: 24px; border: 1px solid #737373"><p>{{item}}</p></div>
+            </el-col>
+          </template>
+        </el-col>
+        <el-col :span="10">
+          <template v-for="item in tags">
+            <el-tag :key="item" type="info">{{item}}</el-tag>&nbsp;&nbsp;&nbsp;&nbsp;
+          </template>
+          <div class="contact">
+            <h2>联系我</h2>
+            <el-form>
+              <el-form-item label="电话：">
+                <a>{{phone}}</a>
+              </el-form-item>
+              <el-form-item label="电话：">
+                <a>{{email}}</a>
+              </el-form-item>
+            </el-form>
+          </div>
+        </el-col>
         <div class="acount">
           <el-row>
             <template v-for="item in accounts">
@@ -41,6 +51,10 @@ export default {
   data () {
     return {
       show: false,
+      appraise: ['高效的自学能力,具备独立分析解决问题能力', '强烈的自我驱动力,只喜欢优雅的代码', '熟悉组件化开发，sf重度依耐性患者'],
+      tags: ['爱读书', '爱写字', '爱喝茶', '喜欢尝试新事物'],
+      phone: '18629338048',
+      email: '746733042@qq.com',
       accounts: [
         {class: 'icon-GitHub', link: 'https://github.com/lyttonlee'},
         {class: 'icon-sf', link: 'https://segmentfault.com/u/siwuweihesi'},
