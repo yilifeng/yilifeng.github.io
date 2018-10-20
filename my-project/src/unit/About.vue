@@ -59,7 +59,7 @@ export default {
   data () {
     return {
       // ..
-      img: require('../../static/img/bg1.jpg'),
+      img: require('../../static/img/bg3.jpg'),
       clientHeight: '900px',
       init: 1,
       lastscroll: 0,

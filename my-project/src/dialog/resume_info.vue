@@ -1,5 +1,5 @@
 <template>
-  <div class="info" style="margin-top: 8%">
+  <div class="info" style="margin-top: 5%">
     <transition
       :duration="{ enter: 2500, leave: 1500 }"
       enter-active-class="animated fadeInUp">
