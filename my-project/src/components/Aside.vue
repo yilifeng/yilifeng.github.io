@@ -33,6 +33,9 @@ export default {
     var myDate = new Date()
     console.log(myDate.getMonth())
     console.log(myDate.getDay())
+    console.log(myDate.getHours())
+    console.log(myDate.getMinutes())
+    console.log(myDate.getSeconds())
     this.calendar1.value = [myDate.getFullYear(), myDate.getMonth(), myDate.getDay()]
     console.log(this.calendar1.value)
   },

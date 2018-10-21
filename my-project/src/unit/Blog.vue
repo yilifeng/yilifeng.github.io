@@ -1,9 +1,9 @@
 <template>
   <el-row style="margin-top: 10px">
-    <el-col :span="6"><div class="grid-content bg-purple">
+    <el-col :span="5"><div class="grid-content bg-purple">
       <aside-aside name="qwert"></aside-aside>
     </div></el-col>
-    <el-col :span="18"><div class="grid-content bg-purple-light">
+    <el-col :span="19"><div class="grid-content bg-purple-light">
       <el-form :model="form" ref="form" label-width="50px" :rules="rule">
         <el-form-item label="姓    名" prop="username">
         <el-input type="text" v-model="form.username" auto-complete="off"></el-input>
