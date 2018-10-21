@@ -4,21 +4,7 @@
       <aside-aside name="qwert"></aside-aside>
     </div></el-col>
     <el-col :span="19"><div class="grid-content bg-purple-light">
-      <el-form :model="form" ref="form" label-width="50px" :rules="rule">
-        <el-form-item label="姓    名" prop="username">
-        <el-input type="text" v-model="form.username" auto-complete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="密    码" prop="password">
-          <el-input type="password" v-model="form.password" auto-complete="off"></el-input>
-        </el-form-item>
-        <el-form-item label="确认密码" prop="password2">
-          <el-input type="password" v-model="form.password2" auto-complete="off"></el-input>
-        </el-form-item>
-        <el-form-item>
-          <el-button type="primary" @click="create">提交</el-button>
-          <el-button @click="resetForm">重置</el-button>
-        </el-form-item>
-      </el-form>
+
     </div></el-col>
   </el-row>
 </template>
