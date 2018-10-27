@@ -15,7 +15,6 @@ import '../static/css/animate.css'
 
 // js
 import * as actions from './util/actions'
-import ManagerUnit from '@/components/ManagerUnit' // 自定义的组件
 
 // 第三方插件
 Vue.use(Vuex)
@@ -23,8 +22,8 @@ Vue.use(VueResource)
 Vue.use(ElementUI)
 
 // 自定义全局组件
-Vue.use(ManagerUnit)
-Vue.component('manager-unit', ManagerUnit)
+// Vue.use(ManagerUnit)
+// Vue.component('manager-unit', ManagerUnit)
 
 Vue.config.productionTip = false
 

@@ -1,6 +1,6 @@
 <template>
   <el-container style="height: 100%">
-    <el-header style="min-width: 300px; width:100%; position:fixed; top:0; left:0; background-color: white; z-index:9999">
+    <el-header>
       <top-header
         v-on:transferAside="getAside"
         :aside="showAside">
@@ -8,7 +8,7 @@
     </el-header>
 
     <el-container style="margin-top: 50px">
-      <el-main style="min-width: 80%">
+      <el-main>
         <div id="content">
           <slot name="content"></slot>
           <router-view></router-view>
@@ -52,13 +52,20 @@ export default {
 
 <style scoped>
   .el-header {
-    /*background-color: #B3C0D1;*/
+    min-width: 300px;
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    background-color: white;
+    z-index:9999;
     color: #333;
     text-align: center;
     line-height: 60px
   }
 
   .el-main {
+    min-width: 80%;
     background-color: #E9EEF3;
     color: #333;
     text-align: center;

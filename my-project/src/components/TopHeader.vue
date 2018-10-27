@@ -18,12 +18,9 @@
         style="margin-left: 20%; width: 70%"
         @open="handleOpen"
         @close="handleClose">
-        <el-submenu index="1">
+        <el-submenu index="0">
           <template slot="title">点击展开</template>
           <el-menu-item index="1"><router-link to="/index/About" style=" text-decoration: none;">About</router-link></el-menu-item>
-          <el-menu-item index="2"><router-link to="/index/Blog" style=" text-decoration: none;">Blog</router-link></el-menu-item>
-          <el-menu-item index="3"><router-link to="/index/Demo" style=" text-decoration: none;">Demo</router-link></el-menu-item>
-          <el-menu-item index="4"><router-link to="/index/Home" style=" text-decoration: none;">Home</router-link></el-menu-item>
         </el-submenu>
       </el-menu>
       <el-menu
@@ -33,15 +30,12 @@
         mode="horizontal"
         @select="handleSelect">
         <el-menu-item index="1"><router-link to="/index/About" style=" text-decoration: none;">About</router-link></el-menu-item>
-        <el-menu-item index="2"><router-link to="/index/Blog" style=" text-decoration: none;">Blog</router-link></el-menu-item>
-        <el-menu-item index="3"><router-link to="/index/Demo" style=" text-decoration: none;">Demo</router-link></el-menu-item>
-        <el-menu-item index="4"><router-link to="/index/Home" style=" text-decoration: none;">Home</router-link></el-menu-item>
       </el-menu>
     </div>
-    <div style="float: right; position: fixed; right: 5px">
-      <i class="el-icon-edit"></i>
-      <el-button round>按钮</el-button>
-    </div>
+    <!--<div style="float: right; position: fixed; right: 5px">-->
+      <!--<i class="el-icon-edit"></i>-->
+      <!--<el-button round>按钮</el-button>-->
+    <!--</div>-->
   </div>
 </template>
 
@@ -52,7 +46,7 @@ export default {
   ],
   data () {
     return {
-      activeIndex: '2'
+      activeIndex: '1'
     }
   },
   methods: {

@@ -23,7 +23,7 @@
               </template>
             </el-form-item>
           </el-form>
-          <h3 style="margin-top: 30%">联系我</h3>
+          <a-line style="margin-top: 30%" title="联系我">联系我</a-line>
           <el-form style="text-align: left; margin-left: 30%">
             <el-form-item label="电话：" style="margin-bottom: 0">{{phone}}</el-form-item>
             <el-form-item label="邮箱：" style="margin-bottom: 0">{{email}}</el-form-item>
@@ -45,19 +45,21 @@
   </div>
 </template>
 <script>
+import Line from '@/components/Line.vue'
 export default {
+  components: {
+    'a-line': Line
+  },
   data () {
     return {
       show: false,
-      appraise: ['高效的自学能力,具备独立分析解决问题能力', '强烈的自我驱动力,只喜欢优雅的代码', '熟悉组件化开发，sf重度依耐性患者'],
-      tags: ['读书', '写字', '喝茶', '喜欢尝试新事物'],
+      appraise: ['为人诚恳，待人真诚，具有良好的团队合作精神和沟通能力', '学习能力强，具备独立分析解决问题的能力', '强烈的自我驱动力,只喜欢优雅的代码'],
+      tags: ['读书', '跑步', '打游戏', '尝试新事物'],
       phone: '18629338048',
       email: '746733042@qq.com',
       accounts: [
-        {class: 'icon-GitHub', link: 'https://github.com/lyttonlee'},
-        {class: 'icon-sf', link: 'https://segmentfault.com/u/siwuweihesi'},
-        {class: 'icon-zhihu', link: 'https://www.zhihu.com/people/li-zai-rong-27/activities'},
-        {class: 'icon-xinlang', link: 'https://weibo.com/1803573600/profile?topnav=1&wvr=6&is_all=1'}
+        {class: 'icon-GitHub', link: 'https://github.com/yilifeng'}
+        // {class: 'icon-cnblogs', link: 'https://www.cnblogs.com/bigmoon/'}
       ]
     }
   },
@@ -90,7 +92,7 @@ a {
       width: 60%;
       margin: 10px auto;
       margin-top: 45%;
-      margin-left: 40%;
+      margin-left: 60%;
       .iconBox {
         width: 40px;
         height: 40px;

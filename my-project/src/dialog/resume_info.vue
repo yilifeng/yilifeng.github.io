@@ -5,11 +5,12 @@
       enter-active-class="animated fadeInUp">
       <el-row  class="cont" v-if="show">
         <el-col :span="15"><div class="grid-content bg-purple">
-          <h1 style="margin-top: 35px; text-align: center; font-size: 25px; color: red">基本信息</h1>
+          <!--<h1 style="margin-top: 35px; text-align: center; font-size: 25px; color: red">基本信息</h1>-->
+          <a-line style="margin-top: 35px;" title="基本信息"></a-line>
           <img class="avatar" src="../../static/img/photo.jpg" alt="">
-          <h3>益立锋</h3>
-          <p>毕业于西安理工大学，计算机科学与技术专业</p>
-          <p>工作四年,服务器端开发三年,web开发一年</p>
+          <h3>{{userInfo.name}}</h3>
+          <p>{{userInfo.collage}}</p>
+          <p>{{userInfo.workInfo}}</p>
         </div></el-col>
         <el-col class="state" :span="6"><div class="grid-content bg-purple-light">
           <template v-for="item in states">
@@ -26,10 +27,19 @@
   </div>
 </template>
 <script>
+import Line from '@/components/Line.vue'
 export default {
+  components: {
+    'a-line': Line
+  },
   data () {
     return {
       show: false,
+      userInfo: {
+        name: '益立锋',
+        collage: '毕业于西安理工大学，计算机科学与技术专业',
+        workInfo: '工作四年,服务器端开发三年,web开发一年'
+      },
       states: [
         {icon: 'icon-nianling', val: '年龄/28'},
         {icon: 'icon-xueli', val: '学历/本科'},
