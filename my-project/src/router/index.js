@@ -3,6 +3,7 @@ import Router from 'vue-router'
 // import HelloWorld from '@/components/HelloWorld'
 import index from '@/components/index'
 import About from '@/unit/About'
+import Blog from '@/unit/Blog'
 
 Vue.use(Router)
 
@@ -18,7 +19,8 @@ export default new Router({
       component: index,
       redirect: '/index/About',
       children: [
-        {path: 'About', component: About}
+        {path: 'About', component: About},
+        {path: 'Blog', component: Blog}
       ]
     }
   ]

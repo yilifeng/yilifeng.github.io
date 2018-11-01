@@ -21,6 +21,7 @@
         <el-submenu index="0">
           <template slot="title">点击展开</template>
           <el-menu-item index="1"><router-link to="/index/About" style=" text-decoration: none;">About</router-link></el-menu-item>
+          <el-menu-item index="2"><router-link to="/index/Blog" style=" text-decoration: none;">Blog</router-link></el-menu-item>
         </el-submenu>
       </el-menu>
       <el-menu
@@ -30,6 +31,7 @@
         mode="horizontal"
         @select="handleSelect">
         <el-menu-item index="1"><router-link to="/index/About" style=" text-decoration: none;">About</router-link></el-menu-item>
+        <el-menu-item index="2"><router-link to="/index/Blog" style=" text-decoration: none;">Blog</router-link></el-menu-item>
       </el-menu>
     </div>
     <!--<div style="float: right; position: fixed; right: 5px">-->
