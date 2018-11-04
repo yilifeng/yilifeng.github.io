@@ -83,16 +83,17 @@ export default {
     },
 
     clock () {
+      console.log('ggggggggggggggg')
       console.log(this.showLoginBtn)
-      this.showLoginBtn = this.loginInfo()
-        .then(function (cookies) {
+      this.loginInfo()
+        .then((cookies) => {
           console.log('in clock')
           console.log(cookies)
           if (cookies.loginsucc) {
             console.log('login succ')
-            return false
+            this.showLoginBtn = false
           } else {
-            return true
+            this.showLoginBtn = true
           }
         })
     }
