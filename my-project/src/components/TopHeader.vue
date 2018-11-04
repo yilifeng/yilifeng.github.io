@@ -34,33 +34,36 @@
         <el-menu-item index="2"><router-link to="/index/Blog" style=" text-decoration: none;">Blog</router-link></el-menu-item>
       </el-menu>
     </div>
-    <!--<div style="float: right; position: fixed; right: 5px">-->
+    <div style="float: right; position: fixed; right: 5px">
       <!--<i class="el-icon-edit"></i>-->
-      <!--<el-button round>按钮</el-button>-->
-    <!--</div>-->
+      <div v-if="showLoginBtn">
+        <login title="登陆"></login>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import Login from '@/dialog/login'
+import { mapActions } from 'vuex'
 export default {
+  components: {
+    'login': Login
+  },
   props: [
     'showAside'
   ],
   data () {
     return {
-      activeIndex: '1'
+      activeIndex: '1',
+      showLoginBtn: true
     }
   },
   methods: {
-    handleSelect (key, keyPath) {
-      console.log(key, keyPath)
-    },
-    handleOpen (key, keyPath) {
-      console.log(key, keyPath)
-    },
-    handleClose (key, keyPath) {
-      console.log(key, keyPath)
-    },
+    ...mapActions([
+      'getCookie',
+      'loginInfo'
+    ]),
     getWidth () {
       if (document.body.offsetWidth < 650) {
         return true
@@ -77,7 +80,25 @@ export default {
       console.log('showAside')
       console.log(this.showAside)
       this.$emit('transferAside', this.showAside)
+    },
+
+    clock () {
+      console.log(this.showLoginBtn)
+      this.showLoginBtn = this.loginInfo()
+        .then(function (cookies) {
+          console.log('in clock')
+          console.log(cookies)
+          if (cookies.loginsucc) {
+            console.log('login succ')
+            return false
+          } else {
+            return true
+          }
+        })
     }
+  },
+  mounted () {
+    setInterval(this.clock, 10000)
   }
 }
 </script>

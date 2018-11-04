@@ -32,6 +32,7 @@ const store = new Vuex.Store({
 })
 
 /* eslint-disable no-new */
+// http: { headers: {'Content-Type': 'application/x-www-form-urlencoded'} }
 new Vue({
   el: '#app',
   router,

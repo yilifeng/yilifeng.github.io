@@ -19,9 +19,9 @@
 <script>
 import { mapActions } from 'vuex'
 import Aside from '@/components/Aside'
-import BlogAdd from '@/unit/BlogAdd'
-import BlogList from '@/unit/BlogList'
-import BlogShow from '@/unit/BlogShow'
+import BlogAdd from '@/dialog/BlogAdd'
+import BlogList from '@/dialog/BlogList'
+import BlogShow from '@/dialog/BlogShow'
 export default {
   components: {
     'aside-aside': Aside,

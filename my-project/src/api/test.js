@@ -2,26 +2,6 @@ import Vue from 'vue'
 import md5 from 'js-md5'
 
 export default {
-  login (url, param) {
-    let request = {
-      'username': param.username,
-      'password': md5(param.password)
-    }
-    return Vue.http.post(url + '/user/login', request)
-      .then(function (response) {
-        if (response.status) {
-          if (typeof response.body === 'string') {
-            return JSON.parse(response.body)
-          } else {
-            return response.body
-          }
-        } else {
-          console.log(response.body)
-          throw new Error(response.body)
-        }
-      })
-  },
-
   queryAllUserInfo (url) {
     return Vue.http.get(url + 'query_user_info')
       .then(function (response) {

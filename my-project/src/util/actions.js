@@ -2,9 +2,35 @@
  * actions
  * 向前台页面提供消息接口, 从这个文件屏蔽版本差异
  */
+import testApi from '../api/test'
+import userApi from '../api/user'
+import Cookie from './cookie'
+// var url = 'https://cloud.bmob.cn/e05b480d062bfcec/'
+var url = 'http://127.0.0.1:5000'
 
-import testApi from '../api/user'
-var url = 'https://cloud.bmob.cn/e05b480d062bfcec/'
+export const setOnmouseDown = function () {
+  document.onmousedown = function () {
+    Cookie.activeAction()
+  }
+  document.onkeydown = function () {
+    console.log('enter document.onkeydown')
+    Cookie.activeAction()
+  }
+}
+
+export const login = function ({commit}, param) {
+  console.log(param)
+  return userApi.login(url, param)
+    .then(function (res) {
+      Cookie.setLoginInfo(res)
+      setOnmouseDown()
+      return res
+    })
+}
+
+export const loginInfo = function () {
+  return Cookie.getLoginInfo()
+}
 
 export const queryAllUserInfo = function () {
   let res = testApi.queryAllUserInfo(url)
