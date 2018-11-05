@@ -39,16 +39,21 @@
       <div v-if="showLoginBtn">
         <login title="登陆"></login>
       </div>
+      <div v-if="!showLoginBtn">
+        <personal-centre title="个人中心"> </personal-centre>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import Login from '@/dialog/login'
+import PersonalCentre from '@/dialog/personalCentre'
 import { mapActions } from 'vuex'
 export default {
   components: {
-    'login': Login
+    'login': Login,
+    'personal-centre': PersonalCentre
   },
   props: [
     'showAside'
