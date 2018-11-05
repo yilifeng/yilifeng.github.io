@@ -40,7 +40,7 @@
         <login title="登陆"></login>
       </div>
       <div v-if="!showLoginBtn">
-        <personal-centre title="个人中心"> </personal-centre>
+        <personal-centre title="个人中心"></personal-centre>
       </div>
     </div>
   </div>
@@ -88,8 +88,6 @@ export default {
     },
 
     clock () {
-      console.log('ggggggggggggggg')
-      console.log(this.showLoginBtn)
       this.loginInfo()
         .then((cookies) => {
           console.log('in clock')

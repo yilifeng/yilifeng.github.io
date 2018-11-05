@@ -1,8 +1,10 @@
 <template>
   <div class="grid-content bg-purple-light">
-    <el-row>
-      <div id="editor"></div>
-    </el-row>
+    <div id="editorElem" style="text-align:left"></div>
+    <div slot="footer" class="dialog-footer">
+      <el-button @click="dialogFormVisible = false">取 消</el-button>
+      <el-button type="primary" @click="makeshow">提交</el-button>
+    </div>
   </div>
 </template>
 
@@ -20,13 +22,17 @@ export default {
     ...mapActions([
       'createUser'
     ]),
-    getContent () {
-      alert(this.editorContent)
+    makeshow () {
+      console.log(this.editorContent)
     }
   },
+
   mounted () {
-    this.editor = new Editor('#editor')
-    this.editor.create()
+    var editor = new Editor('#editorElem')
+    editor.customConfig.onchange = (html) => {
+      this.editorContent = html
+    }
+    editor.create()
   }
 }
 </script>

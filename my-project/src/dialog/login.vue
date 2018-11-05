@@ -41,12 +41,12 @@ export default {
     ]),
     onSubmit () {
       this.login(this.form)
-        .then(function (response) {
+        .then((response) => {
           console.log('response:')
           console.log(response)
           if (response.code === 0) {
             alert('登陆成功')
-            // this.dialogFormVisible = false
+            this.dialogFormVisible = false
           } else {
             alert(response.message)
           }
