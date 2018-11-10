@@ -5,12 +5,14 @@
     </div></el-col>
     <el-col :span="19">
       <el-row>
-        <el-button v-if="!showBlogAdd" :onclick="add">添加</el-button>
-      </el-row>
-      <el-row>
-        <blog-add v-if="showBlogAdd"></blog-add>
-        <blog-add v-if="showBlogList"></blog-add>
-        <blog-add v-if="showBlogShow"></blog-add>
+        <el-tabs v-model="activeName2" type="border-card" @tab-click="handleClick">
+          <el-tab-pane label="列表" name="first">
+            <blog-list></blog-list>
+          </el-tab-pane>
+          <el-tab-pane label="添加" name="second">
+            <blog-add></blog-add>
+          </el-tab-pane>
+        </el-tabs>
       </el-row>
     </el-col>
   </el-row>
@@ -31,6 +33,7 @@ export default {
   },
   data () {
     return {
+      activeName2: 'first',
       editorContent: '',
       showAside: true,
       showBlogAdd: false,
@@ -42,11 +45,11 @@ export default {
     ...mapActions([
       'createUser'
     ]),
+    handleClick (tab) {
+      console.log(tab)
+    },
     getContent () {
       alert(this.editorContent)
-    },
-    add () {
-      this.showBlogAdd = true
     }
   }
 }
@@ -63,7 +66,4 @@ export default {
   .bg-purple {
     background: #d3dce6;
   }
-  /*.bg-purple-light {*/
-    /*background: #e5e9f2;*/
-  /*}*/
 </style>

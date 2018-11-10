@@ -3,6 +3,8 @@
  * 向前台页面提供消息接口, 从这个文件屏蔽版本差异
  */
 import testApi from '../api/test'
+import articleApi from '../api/article'
+import contentApi from '../api/content'
 import userApi from '../api/user'
 import Cookie from './cookie'
 // var url = 'https://cloud.bmob.cn/e05b480d062bfcec/'
@@ -51,4 +53,34 @@ export const deleteOneUser = function ({commit}, param) {
   let res = testApi.deleteOneUser(url, param)
   console.log('in deleteOneData')
   console.log(res)
+}
+
+export const queryOneContent = function ({commit}, param) {
+  let res = contentApi.queryOneContent(url, param)
+  console.log('in queryOneContent')
+  console.log(res)
+  return res
+}
+
+export const createContent = function ({commit}, param) {
+  console.log(param)
+  let res = contentApi.createContent(url, param)
+  console.log('in createContent')
+  console.log(res)
+}
+
+export const deleteContent = function ({commit}, param) {
+  console.log(param)
+  let res = contentApi.deleteContent(url, param)
+  console.log('in deleteContent')
+  console.log(res)
+}
+
+export const queryArticles = function () {
+  return articleApi.queryArticles(url)
+    .then((res) => {
+      console.log('queryArticles: ' + res)
+      console.log(res)
+      return res
+    })
 }
