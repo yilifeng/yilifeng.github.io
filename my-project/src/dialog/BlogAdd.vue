@@ -7,7 +7,7 @@
       <div id="editorElem" style="text-align:left"></div>
     </el-form>
     <div slot="footer" class="dialog-footer" style="margin-top: 10px">
-      <el-button @click="dialogFormVisible = false">取 消</el-button>
+      <el-button @click="clearForm">取 消</el-button>
       <el-button type="primary" @click="makeshow">提交</el-button>
     </div>
   </div>
@@ -22,24 +22,49 @@ export default {
     return {
       editorContent: '',
       editorTextContent: '',
-      contentTitle: ''
+      contentTitle: '',
+      userInfo: ''
     }
   },
   methods: {
     ...mapActions([
       'createUser',
-      'getLoginInfo'
+      'loginInfo',
+      'createContent'
     ]),
     makeshow () {
       console.log(this.editorContent)
       console.log(this.editorTextContent)
+      console.log(this.contentTitle)
+      this.loginInfo()
+        .then((res) => {
+          console.log('loginInfo')
+          console.log(res)
+          this.userInfo = res
+          console.log(this.userInfo)
+          let param = {
+            content: this.editorContent,
+            authorId: this.userInfo.userid,
+            author: this.userInfo.loginuser,
+            title: this.contentTitle,
+            abstr: this.editorTextContent.substring(0, 100)
+          }
+          console.log(param)
+          // this.createContent(param)
+        })
+    },
+    clearForm () {
+      this.editorContent = ''
+      this.editorTextContent = ''
+      this.contentTitle = ''
     }
   },
   mounted () {
     var editor = new Editor('#editorElem')
-    editor.customConfig.onchange = (html, text) => {
+    editor.customConfig.onchange = (html) => {
       this.editorContent = html
-      this.editorTextContent = text
+      console.log(editor.$textElem[0].innerText)
+      this.editorTextContent = editor.$textElem[0].innerText
     }
     editor.create()
   }
