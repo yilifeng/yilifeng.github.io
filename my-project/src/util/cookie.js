@@ -3,6 +3,7 @@ var loginIdentify = {
   logindesc: '',
   loginuser: '',
   sessionid: '',
+  userid: '',
   version: '',
   serverip: '',
   serverport: ''
@@ -50,16 +51,13 @@ export default {
     loginIdentify.loginsucc = true
     loginIdentify.loginuser = param.username
     loginIdentify.sessionid = param.token
+    loginIdentify.userid = param.token
     loginIdentify.serverip = arrUrl[2]
-    console.log('111')
-    console.log(loginIdentify)
 
     this.setCookie(cookieKey, loginIdentify, 1)
   },
 
   getLoginInfo () {
-    console.log('222')
-    console.log(loginIdentify)
     return loginIdentify
   },
 
