@@ -66,6 +66,11 @@ export default {
       console.log(editor.$textElem[0].innerText)
       this.editorTextContent = editor.$textElem[0].innerText
     }
+
+    editor.customConfig.uploadImgShowBase64 = true
+    editor.customConfig.uploadImgMaxSize = 3 * 1024 * 1024
+    editor.customConfig.uploadImgMaxLength = 5
+
     editor.create()
   }
 }
