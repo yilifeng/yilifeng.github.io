@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-button @click="dialogFormVisible = true">{{ title }}</el-button>
-    <el-dialog title="请输入用户名密码登陆" :visible.sync="dialogFormVisible">
+    <el-dialog title="请输入用户名密码登陆" ref='dialogform' :visible.sync="dialogFormVisible">
       <el-form :model="form">
         <el-form-item label="用户名：" :label-width="formLabelWidth">
           <el-input type="text" v-model="form.username" autocomplete="off"></el-input>
@@ -39,6 +39,9 @@ export default {
     ...mapActions([
       'login'
     ]),
+    open () {
+      this.dialogFormVisible = true
+    },
     onSubmit () {
       this.login(this.form)
         .then((response) => {

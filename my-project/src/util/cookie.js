@@ -43,7 +43,7 @@ export default {
 
   setLoginInfo (param) {
     let arrUrl = window.location.href.split('/')
-    let cookieKey = arrUrl[2] + '_' + param.username
+    let cookieKey = 'yilifeng' + arrUrl[2] + '_' + param.username
     let cookies = this.getCookie(cookieKey)
     if (cookies.loginsucc) {
       this.delCookie(loginIdentify, cookieKey)
@@ -62,7 +62,7 @@ export default {
   },
 
   activeAction () {
-    let cookieKey = loginIdentify.serverip + '_' + loginIdentify.loginuser
+    let cookieKey = 'yilifeng' + loginIdentify.serverip + '_' + loginIdentify.loginuser
     var cookie = this.getCookie(cookieKey)
     console.log('get cookie')
     console.log(cookie)

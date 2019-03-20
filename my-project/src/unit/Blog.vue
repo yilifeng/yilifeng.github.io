@@ -24,17 +24,18 @@ import Aside from '@/components/Aside'
 import BlogAdd from '@/dialog/BlogAdd'
 import BlogList from '@/dialog/BlogList'
 import BlogShow from '@/dialog/BlogShow'
+import Login from '@/dialog/login'
 export default {
   components: {
     'aside-aside': Aside,
     'blog-add': BlogAdd,
     'blog-list': BlogList,
-    'blog-show': BlogShow
+    'blog-show': BlogShow,
+    'login': Login
   },
   data () {
     return {
       activeName2: 'first',
-      editorContent: '',
       showAside: true,
       showBlogAdd: false,
       showBlogList: true,
@@ -43,13 +44,22 @@ export default {
   },
   methods: {
     ...mapActions([
-      'createUser'
+      'createUser',
+      'loginInfo'
     ]),
     handleClick (tab) {
       console.log(tab)
-    },
-    getContent () {
-      alert(this.editorContent)
+      if (tab.name === 'second') {
+        this.loginInfo()
+          .then((response) => {
+            console.log(response)
+            if (!response.loginsucc) {
+              this.$nextTick(() => {
+                console.log(this.$refs)
+              })
+            }
+          })
+      }
     }
   }
 }

@@ -50,7 +50,7 @@ export default {
             abstr: this.editorTextContent.substring(0, 100)
           }
           console.log(param)
-          // this.createContent(param)
+          this.createContent(param)
         })
     },
     clearForm () {
