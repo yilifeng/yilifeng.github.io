@@ -2,7 +2,7 @@ import Vue from 'vue'
 
 export default {
   queryArticles (url) {
-    return Vue.http.get(url + '/article')
+    return Vue.http.get(url + '/article/')
       .then(function (response) {
         if (response.status) {
           if (typeof response.body === 'string') {

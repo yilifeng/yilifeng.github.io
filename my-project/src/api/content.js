@@ -5,7 +5,7 @@ export default {
     let request = {
       'contentId': param.contentId
     }
-    return Vue.http.get(url + '/content', request)
+    return Vue.http.get(url + '/content/', request)
       .then(function (response) {
         if (response.status) {
           if (typeof response.body === 'string') {
@@ -22,14 +22,14 @@ export default {
 
   createContent (url, param) {
     console.log(param)
-    return Vue.http.post(url + '/content', param)
+    return Vue.http.post(url + '/content/', param)
       .then(function (response) {
         console.log(response)
       })
   },
 
   deleteContent (url, param) {
-    return Vue.http.delete(url + '/content', param)
+    return Vue.http.delete(url + '/content/', param)
       .then(function (response) {
         console.log(response)
       })
