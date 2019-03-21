@@ -41,16 +41,20 @@ export default {
           console.log('loginInfo')
           console.log(res)
           this.userInfo = res
-          console.log(this.userInfo)
-          let param = {
-            content: this.editorContent,
-            authorId: this.userInfo.userid,
-            author: this.userInfo.loginuser,
-            title: this.contentTitle,
-            abstr: this.editorTextContent.substring(0, 100)
+          if (this.userInfo.loginsucc === true) {
+            console.log(this.userInfo)
+            let param = {
+              content: this.editorContent,
+              authorId: this.userInfo.userid,
+              author: this.userInfo.loginuser,
+              title: this.contentTitle,
+              abstr: this.editorTextContent.substring(0, 100)
+            }
+            console.log(param)
+            this.createContent(param)
+          } else {
+            alert('please login first!')
           }
-          console.log(param)
-          this.createContent(param)
         })
     },
     clearForm () {
