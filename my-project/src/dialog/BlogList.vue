@@ -2,7 +2,7 @@
   <el-row>
     <el-card class="box-card" shadow="hover" v-for="item in contents" v-bind:key="item">
       <el-col :span="24" style="margin-top: -35px">
-        <el-button type="text" @click="showContent" style="float: left">
+        <el-button type="text" @click="showContent(item.contentId)" style="float: left">
           <p style="font-size: 20px">{{item.title}}</p>
         </el-button>
       </el-col>
@@ -23,14 +23,19 @@ export default {
   },
   methods: {
     ...mapActions([
-      'queryArticles'
+      'queryArticles',
+      'queryOneContent'
     ]),
     getContent () {
       alert(this.editorContent)
     },
-    showContent () {
+    showContent (id) {
       console.log('showcontent')
-      console.log(this.contents)
+      console.log(id)
+      this.queryOneContent({'contentId': id})
+        .then((res) => {
+          console.log(res)
+        })
     }
   },
   mounted () {

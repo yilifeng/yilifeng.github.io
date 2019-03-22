@@ -2,10 +2,7 @@ import Vue from 'vue'
 
 export default {
   queryOneContent (url, param) {
-    let request = {
-      'contentId': param.contentId
-    }
-    return Vue.http.get(url + '/content/', request)
+    return Vue.http.get(url + '/content/' + param.contentId)
       .then(function (response) {
         if (response.status) {
           if (typeof response.body === 'string') {
