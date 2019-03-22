@@ -1,5 +1,7 @@
 <template>
   <div class="grid-content bg-purple-light">
+    <el-button @click="showContent">test</el-button>
+    <p>{{content}}</p>
     <el-row>
       <div id="editor"></div>
     </el-row>
@@ -11,6 +13,9 @@ import { mapActions } from 'vuex'
 import Editor from 'wangeditor'
 import 'wangeditor/release/wangEditor.min.css'
 export default {
+  props: [
+    'content'
+  ],
   data () {
     return {
       editorContent: ''
@@ -20,8 +25,9 @@ export default {
     ...mapActions([
       'createUser'
     ]),
-    getContent () {
-      alert(this.editorContent)
+    showContent () {
+      alert(this.content)
+      this.$emit('childControl')
     }
   },
   mounted () {
