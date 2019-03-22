@@ -35,6 +35,7 @@ export default {
       this.queryOneContent({'contentId': id})
         .then((res) => {
           console.log(res)
+          this.$emit('childControl', res)
         })
     }
   },
