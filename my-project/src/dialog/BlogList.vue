@@ -30,13 +30,7 @@ export default {
       alert(this.editorContent)
     },
     showContent (id) {
-      console.log('showcontent')
-      console.log(id)
-      this.queryOneContent({'contentId': id})
-        .then((res) => {
-          console.log(res)
-          this.$emit('childControl', res)
-        })
+      this.$emit('childControl', id)
     }
   },
   mounted () {

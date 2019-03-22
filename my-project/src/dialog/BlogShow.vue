@@ -1,38 +1,39 @@
 <template>
   <div class="grid-content bg-purple-light">
-    <el-button @click="showContent">test</el-button>
-    <p>{{content}}</p>
-    <el-row>
-      <div id="editor"></div>
-    </el-row>
+    <el-button @click="showContent">返回</el-button>
+    <div v-html="this.contentValue"></div>
   </div>
 </template>
 
 <script>
 import { mapActions } from 'vuex'
-import Editor from 'wangeditor'
-import 'wangeditor/release/wangEditor.min.css'
 export default {
   props: [
-    'content'
+    'contentId'
   ],
   data () {
     return {
-      editorContent: ''
+      contentValue: ''
     }
   },
   methods: {
     ...mapActions([
-      'createUser'
+      'queryOneContent'
     ]),
     showContent () {
-      alert(this.content)
       this.$emit('childControl')
     }
   },
   mounted () {
-    this.editor = new Editor('#editor')
-    this.editor.create()
+    this.queryOneContent({'contentId': this.contentId})
+      .then((res) => {
+        console.log(res)
+        if (res.status === 0) {
+          this.contentValue = res.data[0].content
+        } else {
+          alert('no data found!')
+        }
+      })
   }
 }
 </script>
