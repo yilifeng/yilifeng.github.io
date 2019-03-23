@@ -69,6 +69,13 @@ export const createContent = function ({commit}, param) {
   console.log(res)
 }
 
+export const updateContent = function ({commit}, param) {
+  console.log(param)
+  let res = contentApi.updateContent(url, param)
+  console.log('in createContent')
+  console.log(res)
+}
+
 export const deleteContent = function ({commit}, param) {
   console.log(param)
   let res = contentApi.deleteContent(url, param)

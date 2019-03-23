@@ -35,12 +35,6 @@ export default {
     },
     showContent (id, title) {
       this.$emit('childControl', id, title)
-    },
-    handleEdit (index, row) {
-      console.log(index, row)
-    },
-    handleDelete (index, row) {
-      console.log(index, row)
     }
   },
   mounted () {

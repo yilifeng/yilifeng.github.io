@@ -7,11 +7,11 @@
       <el-row>
         <el-tabs v-model="activeName2" type="border-card" @tab-click="handleClick">
           <el-tab-pane label="列表" name="first">
-            <blog-list v-if="showBlogList" @childControl="getChildData"></blog-list>
-            <blog-show v-else :contentId="contentId" :title="title" @childControl="getChildData"></blog-show>
+            <blog-list ref="showList" v-if="showBlogList" @childControl="getChildData"></blog-list>
+            <blog-show ref="showBlog" v-else :contentId="contentId" :title="title" @childControl="getChildData" @editControl="editControl"></blog-show>
           </el-tab-pane>
-          <el-tab-pane label="添加" name="second">
-            <blog-add></blog-add>
+          <el-tab-pane label="编辑" name="second">
+            <blog-add :isEdit="isEdit" ref="editPage" @afterEdit="afterEdit"></blog-add>
           </el-tab-pane>
         </el-tabs>
       </el-row>
@@ -42,7 +42,8 @@ export default {
       showBlogList: true,
       showBlogShow: false,
       contentId: '',
-      title: ''
+      title: '',
+      isEdit: false
     }
   },
   methods: {
@@ -51,7 +52,6 @@ export default {
       'loginInfo'
     ]),
     getChildData (id, title) {
-      console.log('---------', id, title)
       this.contentId = id
       this.title = title
       if (this.showBlogList === true) {
@@ -59,6 +59,16 @@ export default {
       } else {
         this.showBlogList = true
       }
+    },
+    editControl (title, id) {
+      this.isEdit = true
+      this.activeName2 = 'second'
+      this.$refs.editPage.open(title, id)
+    },
+    afterEdit () {
+      this.isEdit = false
+      this.activeName2 = 'first'
+      this.$refs.showBlog.refresh()
     },
     handleClick (tab) {
       console.log(tab)

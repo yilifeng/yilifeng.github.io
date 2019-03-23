@@ -25,6 +25,14 @@ export default {
       })
   },
 
+  updateContent (url, param) {
+    console.log(param)
+    return Vue.http.put(url + '/content/', param)
+      .then(function (response) {
+        console.log(response)
+      })
+  },
+
   deleteContent (url, param) {
     return Vue.http.delete(url + '/content/', param)
       .then(function (response) {
