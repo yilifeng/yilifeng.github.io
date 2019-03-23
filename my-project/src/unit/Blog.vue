@@ -8,7 +8,7 @@
         <el-tabs v-model="activeName2" type="border-card" @tab-click="handleClick">
           <el-tab-pane label="列表" name="first">
             <blog-list v-if="showBlogList" @childControl="getChildData"></blog-list>
-            <blog-show v-else :contentId="contentId" @childControl="getChildData"></blog-show>
+            <blog-show v-else :contentId="contentId" :title="title" @childControl="getChildData"></blog-show>
           </el-tab-pane>
           <el-tab-pane label="添加" name="second">
             <blog-add></blog-add>
@@ -41,7 +41,8 @@ export default {
       showBlogAdd: false,
       showBlogList: true,
       showBlogShow: false,
-      contentId: ''
+      contentId: '',
+      title: ''
     }
   },
   methods: {
@@ -49,9 +50,10 @@ export default {
       'createUser',
       'loginInfo'
     ]),
-    getChildData (id) {
-      console.log('---------', id)
+    getChildData (id, title) {
+      console.log('---------', id, title)
       this.contentId = id
+      this.title = title
       if (this.showBlogList === true) {
         this.showBlogList = false
       } else {

@@ -111,7 +111,7 @@ export default {
     // 然后监听window的resize事件．在浏览器窗口变化时再设置下背景图高度
     window.onresize = () => {
       this.clientHeight = `${document.documentElement.clientHeight}px`
-      console.log(this.clientHeight)
+      console.log('height', this.clientHeight)
     }
   }
 }

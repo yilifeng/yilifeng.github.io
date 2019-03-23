@@ -1,6 +1,8 @@
 <template>
   <div class="grid-content bg-purple-light">
     <el-button @click="showContent">返回</el-button>
+    <br/>
+    <h1>{{title}}</h1>
     <div v-html="this.contentValue"></div>
   </div>
 </template>
@@ -9,7 +11,8 @@
 import { mapActions } from 'vuex'
 export default {
   props: [
-    'contentId'
+    'contentId',
+    'title'
   ],
   data () {
     return {
